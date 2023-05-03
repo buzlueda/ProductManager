@@ -1,4 +1,6 @@
 using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 
@@ -10,28 +12,32 @@ public class ProductManager : IProductService
     {
         _productDal = productDal;
     }
-    public void Add(Product product)
-    {
 
+    public IResult Add(Product product)
+    {
+        _productDal.Add(product);
+        return new SuccessResult(Messages.ProductAdded);
     }
 
-    public void Delete(Product product)
+    public IResult Delete(Product product)
     {
-        throw new NotImplementedException();
+        _productDal.Delete(product);
+        return new SuccessResult();
     }
 
-    public List<Product> GetAll()
+    public IDataResult<List<Product>> GetAll()
     {
-        throw new NotImplementedException();
+        return new SuccessDataResult<List<Product>>(_productDal.GetAll());
     }
 
-    public Product GetById()
+    public IDataResult<Product> GetById(int id)
     {
-        throw new NotImplementedException();
+        return new SuccessDataResult<Product>(_productDal.Get(p => p.Id == id));
     }
 
-    public void Update(Product product)
+    public IResult Update(Product product)
     {
-        throw new NotImplementedException();
+        _productDal.Update(product);
+        return new SuccessResult(Messages.ProductUpdated);
     }
 }

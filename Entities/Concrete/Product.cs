@@ -1,15 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Entities.Abstract;
+using Core.Entities;
 
-namespace Entities.Concrete
+namespace Entities.Concrete;
+public class Product : IEntity
 {
-    public class Product : IEntity
-    {
-        public int Id { get; set; }
-        public int CategoryId { get; set; }
-        public string Name { get; set; } = string.Empty;
-    }
+    public int Id { get; set; }
+    public int CategoryId { get; set; }
+    public string Name { get; set; } = string.Empty;
 }
