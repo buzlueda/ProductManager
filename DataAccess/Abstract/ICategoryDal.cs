@@ -4,12 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Core.DataAccess.EntityFramework;
 using Entities.Concrete;
-using Entities.DTOs;
 
 namespace DataAccess.Abstract
 {
-    public interface IProductDal : IEntityRepository<Product>
+    public interface ICategoryDal : IEntityRepository<Category>
     {
-        List<ProductDetailDto> GetProductDetails();
+
     }
 }

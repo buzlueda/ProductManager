@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.DataAccess.EntityFramework;
+using DataAccess.Abstract;
 using Entities.Concrete;
-using Entities.DTOs;
 
-namespace DataAccess.Abstract
+namespace DataAccess.Concrete.EntityFramework
 {
-    public interface IProductDal : IEntityRepository<Product>
+    public class EfCategoryDal : EfEntityRepositoryBase<Category, ProductManagerContext>, ICategoryDal
     {
-        List<ProductDetailDto> GetProductDetails();
+
     }
 }
